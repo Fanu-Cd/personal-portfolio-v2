@@ -1,0 +1,7 @@
+.green-text {
+  color: hsla(155, 100%, 40%, 1);
+}
+
+* {
+  font-family: monospace;
+}
