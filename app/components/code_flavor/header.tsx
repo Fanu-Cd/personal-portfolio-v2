@@ -47,7 +47,7 @@ const Header = () => {
       <Box className="w-[50%]" hidden={isSmallScreen}>
         <Tabs
           value={selectedTab}
-          onChange={setSelectedTab}
+          onChange={setSelectedTab as any}
           classNames={{ tab: `!text-white hover:!bg-transparent` }}
           color="orange"
           variant="outline"
