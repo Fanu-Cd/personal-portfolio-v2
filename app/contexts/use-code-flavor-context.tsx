@@ -22,7 +22,7 @@ export function CodeFlavorProvider({
   ];
   const [selectedTab, setSelectedTab] = useState<
     "_home" | "_about-me" | "_projects"
-  >("_projects");
+  >("_home");
   return (
     <CodeFlavorContext.Provider value={{ tabs, selectedTab, setSelectedTab }}>
       {children}
