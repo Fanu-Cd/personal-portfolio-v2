@@ -1,4 +1,4 @@
-import { useCodeFlavorContext } from "@/app/contexts/use-code-flavor-context";
+import { useCodeFlavorContext } from "../../contexts/use-code-flavor-context";
 import {
   Box,
   Burger,

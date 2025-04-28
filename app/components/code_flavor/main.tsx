@@ -1,4 +1,4 @@
-import { useCodeFlavorContext } from "@/app/contexts/use-code-flavor-context";
+import { useCodeFlavorContext } from "../../contexts/use-code-flavor-context";
 import _Home from "./_home";
 import _AboutMe from "./_about-me";
 import _Projects from "./_projects";
