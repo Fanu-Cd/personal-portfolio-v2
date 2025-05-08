@@ -1,1 +1,1 @@
-personal portfolio website for and by Fanuel Amare
+Personal portfolio website for and by Fanuel Amare (preview link on about section)
