@@ -1,10 +1,19 @@
 "use client";
-import { Button, Center, Container, Stack, Text } from "@mantine/core";
+import {
+  Alert,
+  Anchor,
+  Button,
+  Center,
+  Container,
+  Divider,
+  Stack,
+  Text,
+} from "@mantine/core";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import CodeFlavorPage from "./pages/code-flavor-page";
-import { IconArrowLeft } from "@tabler/icons-react";
+import { IconArrowLeft, IconExternalLink } from "@tabler/icons-react";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -21,6 +30,8 @@ export default function Home() {
     }
   }, [searchParams]);
 
+  const V1_PORFOLIO_LINK = "https://fanu-personal-portfolio.netlify.app/";
+
   return (
     <Container fluid className="w-full !p-0">
       {userFlavor === "code" ? (
@@ -28,16 +39,28 @@ export default function Home() {
       ) : (
         <Center h={500}>
           <Stack>
-            <Text fw={"bold"}>Basic Mode Coming Up...</Text>
-            <Button
-              leftSection={<IconArrowLeft size={"1.2rem"} />}
-              onClick={() => {
-                router?.push(`?flavor=code`);
-              }}
-              variant="outline"
-            >
-              Back to Code flavor
-            </Button>
+            <Text fw={"bold"}>Basic Mode Coming Up,</Text>
+            <Stack>
+              <Button
+                leftSection={<IconArrowLeft size={"1.2rem"} />}
+                onClick={() => {
+                  router?.push(`?flavor=code`);
+                }}
+                variant="outline"
+              >
+                Back to Code flavor
+              </Button>
+              <Divider label="Or" />
+              <Anchor href={V1_PORFOLIO_LINK} target="_blank">
+                <Button
+                  fullWidth
+                  className="mx-auto"
+                  rightSection={<IconExternalLink size={"0.9rem"} />}
+                >
+                  Visit My Second Portfolio
+                </Button>
+              </Anchor>
+            </Stack>
           </Stack>
         </Center>
       )}
