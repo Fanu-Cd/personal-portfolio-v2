@@ -26,8 +26,10 @@ import {
   IconBrandMongodb,
   IconBrandNextjs,
   IconBrandNodejs,
+  IconBrandPrisma,
   IconBrandReact,
   IconBrandReactNative,
+  IconBrandSupabase,
   IconBrandTailwind,
   IconBrandTypescript,
   IconBriefcase,
@@ -66,7 +68,7 @@ const AboutMe = () => {
       I am a skilled software developer proficient in frontend technologies
         like React.js, Next.js, TypeScript, and various UI frameworks such as
         Ant Design, Material-UI, Mantine-UI, and TailwindCSS, as well as backend
-        technologies including Node.js, Express.js, MongoDB, and Mongoose, with
+        technologies including Node.js, Express.js, MongoDB, and Mongoose, Prisma, PostgreSQL and Supabase with
         a strong understanding of both frontend and backend development to build
         efficient, scalable web applications.`;
 
@@ -198,15 +200,28 @@ const AboutMe = () => {
       icon: <IconAppWindow color="#47A248" />,
       label: <Text c="#47A248">Mongoose</Text>,
     },
+
+    {
+      icon: <IconBrandPrisma color="#1976D2" />,
+      label: <Text c="#1976D2">Prisma</Text>,
+    },
+    {
+      icon: <IconAppWindow color="#336791" />,
+      label: <Text c="#336791">PostgresQL</Text>,
+    },
+    {
+      icon: <IconBrandSupabase color="#3399FF" />,
+      label: <Text c="#3399FF">Supabase</Text>,
+    },
   ];
 
   const devAllSkills = [
     "HTML5, CSS3, JavaScript,TypeScript",
-    "React.js, React Native,Next.js",
-    "Bootstrap,Tailwindcss",
+    "React.js, React Native, Next.js",
+    "Bootstrap, Tailwindcss",
     "Ant Design, Material-UI, Mantine-UI",
     "Node.js, Express.js, MongoDB, Mongoose,",
-    "Microsoft SharePoint,SPFx",
+    "Microsoft SharePoint, SPFx, Prisma, PostgreSQL, Supabase",
   ];
 
   const DevSkillsContent = () => (
