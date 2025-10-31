@@ -8,6 +8,9 @@ import {
   Divider,
   Flex,
   Group,
+  Popover,
+  PopoverDropdown,
+  PopoverTarget,
   Stack,
   Text,
   Title,
@@ -16,14 +19,70 @@ import { Carousel } from "@mantine/carousel";
 import bidManagementPhoto1 from "../../assets/bid_management_photo_1.png";
 import lmsPhoto1 from "../../assets/learning_management_photo_1.png";
 import rentalProjectPhoto1 from "../../assets/rental_project_photo_1.webp";
+import betee1 from "../../assets/betee.png";
+import velin1 from "../../assets/velin.png";
+
 import Image from "next/image";
-import { IconBrandGithub } from "@tabler/icons-react";
+import { IconBrandGithub, IconMail } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 const Projects = () => {
   const CODE_COLOR_1 = "#a9a9a9";
   const CODE_COLOR_2 = "hsla(155, 100%, 40%, 1)";
   const { Slide } = Carousel;
   const projectSlides = [
+    {
+      title:
+        "Velin (Exam Management & Delivery Platform (SaaS) )",
+      description: `<div>
+          <p>
+            Velin is a powerful SaaS platform designed to simplify and streamline exam creation, management, and delivery for institutions and organizations. Built around a subscription-based model, it empowers exam administrators and examinees with a secure and organized exam experience.
+          </p>
+          <p class="mt-5">
+          Exam Administrators can create and manage exams with rich question sets, generate examinees, configure detailed exam settings, and organize multiple exam sessions with ease. Exam Takers can join exams using a unique exam access code, securely log in, update their passwords, take exams, and submit their results effortlessly.
+</p>
+<p class="mt-5">
+  The system was built using modern technologies, including Next.js, Prisma, PostgreSQL and Supabase. And features Google sign-in, user notifications.
+</p>
+        </div>`,
+      photo: velin1,
+      isPrivate: true,
+      // githubLink: "https://github.com/Fanu-Cd/velin",
+    },
+    {
+      title: "Betee (House Rental and Property management platform)",
+      description: `<div>
+          <p>
+            Betee is a modern web application designed to simplify the management of house and hotel room rentals. It connects admins, owners, and tenants through a seamless and efficient experience.
+          </p>
+          <p class="mt-5">
+          Admins oversee the entire platform — managing users, bookings, and payments with ease. Owners can create and edit property listings with interactive map integration, monitor bookings, tenants, and track their earnings in real time. Tenants can browse properties using smart filters, make secure online payments via Chapa, and conveniently track their booking progress
+</p>
+<p class="mt-5">
+  The system was built using modern technologies, including Next.js, Prisma, PostgreSQL and Supabase. And features Google sign-in, user notifications, and automated availability updates, ensuring a smooth, transparent, and intelligent rental process for everyone involved.
+</p>
+
+        </div>`,
+      photo: betee1,
+      isPrivate: true,
+      // githubLink: "https://github.com/Fanu-Cd/betee",
+    },
+
+    {
+      title: "cheretanet (Bid management system)",
+      description: `<div>
+<p>
+     cheretanet(meaning 'a network for bidding' in amharic) is an online platform designed to streamline the bidding and tender management processes. It allows bidders, procurement department heads, and procurement endorsing committee heads to actively participate in tender processes, while the general public can view tender advertisements and bid awards without requiring an account.",
+</p>
+<p class='mt-5'>
+  The platform offers seamless registration and account management for suppliers, along with efficient bid management tools for procurement departments and endorsement committees. It delivers a user-friendly interface and smooth user experience, ensuring secure, up-to-date bidding processes. Additionally, it facilitates communication between procurement departments to streamline operations.
+</p>
+<p class="mt-5">
+  The system was developed using React.js, Node.js, Express.js, MongoDB, and Mongoose.
+</p>
+</div>`,
+      photo: bidManagementPhoto1,
+      githubLink: "https://github.com/mihretue/Bid-management-project",
+    },
     {
       title: "kiraybet (House rental platform)",
       description: `<div>
@@ -60,22 +119,6 @@ interface.</p>
       </div>`,
       photo: lmsPhoto1,
       githubLink: "https://github.com/Fanu-Cd/academix",
-    },
-    {
-      title: "cheretanet (Bid management system)",
-      description: `<div>
-<p>
-     cheretanet(meaning 'a network for bidding' in amharic) is an online platform designed to streamline the bidding and tender management processes. It allows bidders, procurement department heads, and procurement endorsing committee heads to actively participate in tender processes, while the general public can view tender advertisements and bid awards without requiring an account.",
-</p>
-<p class='mt-5'>
-  The platform offers seamless registration and account management for suppliers, along with efficient bid management tools for procurement departments and endorsement committees. It delivers a user-friendly interface and smooth user experience, ensuring secure, up-to-date bidding processes. Additionally, it facilitates communication between procurement departments to streamline operations.
-</p>
-<p class="mt-5">
-  The system was developed using React.js, Node.js, Express.js, MongoDB, and Mongoose.
-</p>
-</div>`,
-      photo: bidManagementPhoto1,
-      githubLink: "https://github.com/mihretue/Bid-management-project",
     },
   ];
 
@@ -136,8 +179,8 @@ interface.</p>
                             <Image
                               src={slide.photo}
                               alt="Photo"
-                              width={250}
-                              height={160}
+                              width={400}
+                              height={400}
                               className="rounded-md"
                             />
                           </Box>
@@ -150,14 +193,44 @@ interface.</p>
                             }}
                           />
                           <Group justify="center" mt={10}>
-                            <Anchor href={slide.githubLink}>
-                              <Button
-                                variant="outline"
-                                leftSection={<IconBrandGithub />}
-                              >
-                                View on Github
-                              </Button>
-                            </Anchor>
+                            {slide.isPrivate ? (
+                              <Popover>
+                                <PopoverTarget>
+                                  <Button
+                                    variant="outline"
+                                    leftSection={<IconBrandGithub />}
+                                  >
+                                    View on Github
+                                  </Button>
+                                </PopoverTarget>
+                                <PopoverDropdown>
+                                  <Stack gap={5} align="center">
+                                    <Text fw={"bold"} size="xs">
+                                      This is a Private Project,
+                                    </Text>
+                                    <Button
+                                      variant="filled"
+                                      onClick={() => {
+                                        window.location.href = `mailto:${MY_EMAIL}`;
+                                      }}
+                                      color="orange"
+                                      leftSection={<IconMail />}
+                                    >
+                                      Contact me
+                                    </Button>
+                                  </Stack>
+                                </PopoverDropdown>
+                              </Popover>
+                            ) : (
+                              <Anchor href={slide.githubLink}>
+                                <Button
+                                  variant="outline"
+                                  leftSection={<IconBrandGithub />}
+                                >
+                                  View on Github
+                                </Button>
+                              </Anchor>
+                            )}
                           </Group>
                         </Stack>
                       </Card.Section>
